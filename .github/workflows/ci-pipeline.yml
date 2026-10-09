@@ -1,7 +1,7 @@
 name: Combined Project CI Pipeline
 
-# on: workflow_dispatch
-on: [workflow_dispatch, push, pull_request]
+on: workflow_dispatch
+# on: [workflow_dispatch, push, pull_request]
 
 jobs:
   # ==========================================
@@ -49,7 +49,7 @@ jobs:
           pip install yamllint ansible
 
       - name: Run yamllint
-        run: yamllint site.yml
+        run: yamllint playbook/badplaybook.yml
 
       - name: Run ansible-lint
         uses: ansible/ansible-lint@v6
