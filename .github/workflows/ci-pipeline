@@ -1,7 +1,7 @@
 name: Combined Project CI Pipeline
 
-on: workflow_dispatch
-# on: [push, pull_request]
+# on: workflow_dispatch
+on: [workflow_dispatch, push, pull_request]
 
 jobs:
   # ==========================================
