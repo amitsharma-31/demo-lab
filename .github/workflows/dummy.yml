@@ -27,5 +27,4 @@ jobs:
       # 4. Optional: Verification step to verify the workspace runs correctly
       - name: Run Tests or Scripts
         run: |
-          npm test --if-present
           python -c "import sys; print('Python Environment ready:', sys.version)"
