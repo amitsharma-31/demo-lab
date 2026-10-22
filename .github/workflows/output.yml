@@ -15,7 +15,7 @@ jobs:
       - name: Generate Version Number
         id: version_generator
         run: |
-          FULL_VERSION="v1.0.${{{ github.run_number }}"
+          FULL_VERSION="v1.0.${{ github.run_number }}"
           echo "app_version=$FULL_VERSION" >> $GITHUB_OUTPUT
 
   # Job 2: Waits for Job 1 and uses its output
