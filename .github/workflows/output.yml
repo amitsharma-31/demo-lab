@@ -1,7 +1,6 @@
 name: GitHub Actions Multi-Job Output Demo
 
-on:
-  workflow_dispatch: # Allows manual triggering
+on: [workflow_dispatch, push]
 
 jobs:
   # Job 1: Generates the version
