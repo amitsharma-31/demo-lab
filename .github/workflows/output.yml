@@ -1,0 +1,26 @@
+name: GitHub Actions Output Demo
+
+on:
+  workflow_dispatch: # Allows you to trigger this workflow manually
+
+jobs:
+  demo-job:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Generate the value and set it as an output
+      - name: Generate Version Number
+        id: version_generator #  MUST give the step an ID to reference its outputs later
+        run: |
+          BASE_VERSION="v1.0"
+          RUN_NUMBER="${{ github.run_number }}"
+          FULL_VERSION="${BASE_VERSION}.${RUN_NUMBER}"
+          
+          echo "Created version: $FULL_VERSION"
+          
+          # This is the magic command to set an output in GitHub Actions
+          echo "app_version=$FULL_VERSION" >> $GITHUB_OUTPUT
+
+      # Step 2: Retrieve and use the output from Step 1
+      - name: Use Generated Version
+        run: |
+          echo "Successfully deployed application version: ${{ steps.version_generator.outputs.app_version }}"
