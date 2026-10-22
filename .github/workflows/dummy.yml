@@ -1,6 +1,6 @@
 name: Pip Cache Demo
 
-on: [workflow_dispatch, push]
+on: workflow_dispatch
  
 jobs:
   build:
